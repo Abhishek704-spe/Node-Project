@@ -1,0 +1,63 @@
+{{>header}}
+
+<body>
+    {{>nav}}
+
+    <!-- Main Header -->
+    <div class="container-fluid main-header">
+        <div class="row">
+            <div class="col-md-12 col-12">
+
+                <div class="main-content">
+                    <form class="temp_form">
+                        <input type="text" id="cityName" placeholder="Enter Your City Name" autocomplete="off">
+                        <input type="submit" value="Search" id="submitBtn">
+                    </form>
+                </div>
+                <div class="tempInformation">
+                    <div class="top_layer">
+                        <p id="day">Tuesday</p>
+                        <p id="today_data">13 Oct</p>
+                    </div>
+                    <div class="main_layer">
+                        <p id="city_name">Get Output Here</p>
+                        <div class="middle_layer data_hide">
+                            <p id="temp"><span id="temp_real_val">0</span><sup>o</sup>C</p>
+                            <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{>footer}}
+
+    <script src="./js/main.js"></script>
+    <script>
+         const getCurrentDay=()=>{
+            const days=[
+                "SUN","MON","TUE","WED","THU","FRI","SAT"
+            ]
+            const currDay=new Date();
+            const day=days[currDay.getDay()];
+
+            document.getElementById("day").innerHTML=day;
+        }
+
+         const getCurrentDate=()=>{
+            const months=[
+                "Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sep","Oct","Nov","Dec"
+            ]
+            const currDate=new Date();
+            let month=months[currDate.getMonth()];
+            let date=currDate.getDate();
+
+            document.getElementById("today_data").innerHTML=`${date},${ month}`;
+        }
+        getCurrentDay();
+        getCurrentDate(); 
+    </script>
+    </body>
+
+</html>
